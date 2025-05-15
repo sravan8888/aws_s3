@@ -17,4 +17,51 @@ Directory bucket – A directory bucket is an Amazon S3 bucket type that is used
 You can create a directory bucket in a supported Availability Zone (AZ) that you choose. Unlike general purpose buckets, directory buckets exist only in a single Availability Zone in a single AWS Region. For optimal performance, we recommend that you co-locate your directory bucket and your computer resources in the same Availability Zone.
 Directory bucket names must be unique within the chosen AZ, and the AZ ID is automatically included in the directory bucket name's suffix.
 
+Bucket Versioning:
+Bucket versioning in S3 is a feature that allows you to keep multiple versions of an object in the same bucket. When versioning is enabled, any time an object is modified or deleted, S3 retains the previous versions instead of overwriting or permanently deleting them.
+
+Benefits and Use Cases
+🛡️ Protect Against Accidental Deletion or Overwrites
+If someone accidentally deletes or overwrites a file, you can restore the previous version.
+📂 Keep File History (Audit/Backup)
+Useful for tracking changes to data or retaining historical backups.
+🔁 Easy Recovery
+Quickly roll back to an earlier version of a file.
+💼 Compliance and Data Retention
+Helps meet regulatory requirements for data retention and recovery.
+
+Default Encryption in an S3 Bucket?
+Default encryption in Amazon S3 automatically encrypts all new objects when they are stored in the bucket, without requiring the uploader to explicitly specify encryption.
+It helps enforce data protection by ensuring that all objects are encrypted at rest.
+Key Points
+Applies to new objects only (existing objects are not automatically encrypted).
+Automatic encryption happens during object upload.
+You can choose the encryption method.
+It doesn't change the way you access your objects — encryption and decryption are handled transparently by S3.
+🔑 Supported Encryption Types
+SSE-S3 (Server-Side Encryption with Amazon S3-Managed Keys)
+No key management needed
+AWS handles key creation, rotation, and storage
+✅ Simple & sufficient for most users
+Header: x-amz-server-side-encryption: AES256
+SSE-KMS (Server-Side Encryption with AWS KMS Keys)
+Uses AWS Key Management Service (KMS)
+Offers better control, logging, and auditing
+
+Slight additional cost
+
+Header: x-amz-server-side-encryption: aws:kms
+
+SSE-C (Customer-Provided Keys) — Not supported for default encryption
+
+The user supplies their own key each time (not recommended for default encryption)
+
+🧘 Why Use Default Encryption?
+✅ Data security compliance
+
+✅ No need to rely on developers to specify encryption headers
+
+✅ Peace of mind: everything uploaded is encrypted by default
+
+
 
