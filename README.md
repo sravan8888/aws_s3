@@ -63,5 +63,80 @@ The user supplies their own key each time (not recommended for default encryptio
 
 ✅ Peace of mind: everything uploaded is encrypted by default
 
+##################################################
+
+executed a simple project on hosting a website on s3 bucket 
+
+ Sample Project: Static Website Hosting using S3
+We’ll host a basic HTML website on S3.
+🛠️ Files:
+Create two files locally:
+
+index.html
+
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My S3 Website</title>
+</head>
+<body>
+  <h1>Hello from AWS S3!</h1>
+</body>
+</html>
+
+error.html
+
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Error</title>
+</head>
+<body>
+  <h1>Oops! Page not found.</h1>
+</body>
+</html>
+
+📤 Upload to S3
+Create a bucket: my-s3-website-yourname
+
+Uncheck “Block all public access”
+
+Go to Properties → Static Website Hosting
+
+Enable
+
+Index: index.html
+
+Error: error.html
+
+Upload both files to the root
+
+Make files public
+
+🌐 Test Website
+Copy Endpoint URL from “Static website hosting”
+
+Open in browser — you’ll see your hosted website
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
