@@ -112,9 +112,7 @@ Go to Properties → Static Website Hosting
 Enable
 
 Index: index.html
-
 Error: error.html
-
 Upload both files to the root
 
 Make files public
@@ -123,6 +121,37 @@ Make files public
 Copy Endpoint URL from “Static website hosting”
 
 Open in browser — you’ll see your hosted website
+
+if you don't get access after with static website hosting just follow the below steps:
+
+Bucket Policy to Allow Public Read Access
+Even if your files are uploaded and marked public, you still need a bucket policy to allow public access via the website endpoint.
+
+✔️ Add this Bucket Policy:
+Go to Permissions tab > Bucket Policy
+
+Paste this:
+
+json
+Copy
+Edit
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::your-bucket-name/*"
+    }
+  ]
+}
+👉 Replace your-bucket-name with your actual bucket name.
+
+Click Save
+
+
 
 
 
